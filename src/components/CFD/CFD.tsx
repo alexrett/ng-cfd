@@ -198,7 +198,7 @@ const CFD = <Layer extends string>(props: PropsWithChildren<CFDProps<Layer>>) =>
                             const ltCircle = ltCircles[di]
                             const ltLabel = ltLabels[di]
                             const ltLine = ltLines[di]
-                            if (lt !== undefined) {
+                            if (lt !== undefined && seriesDi.key === from) {
                                 // Move (and show) the lt circle
                                 ltCircle.style('display', null)
                                 ltLabel.style('display', null)
