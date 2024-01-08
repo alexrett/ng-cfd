@@ -8,6 +8,19 @@ const config: StorybookConfig = {
     // "@storybook/addon-interactions",
     "@storybook/preset-scss"
   ],
+  webpackFinal: async (config) => {
+    // @ts-ignore
+    config.module.rules.push({
+      test: /\.csv$/,
+      loader: 'csv-loader',
+      options: {
+        dynamicTyping: true,
+        header: true,
+        skipEmptyLines: true,
+      },
+    })
+    return config
+  },
   framework: {
     name: "@storybook/react-webpack5",
     options: {
