@@ -21,7 +21,7 @@ Most part of the code is from this project. Big thanks to Aslak Hellesøy.
 
 ## How to use it
 
-Install `npm i ng-cfd``
+Install `npm i ng-cfd`
 
 Use it in your project:
 ```ts
