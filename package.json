@@ -1,14 +1,14 @@
 {
   "name": "ng-cfd",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "type": "commonjs",
   "description": "Simple Cumulative Flow Diagram for React",
   "scripts": {
-    "rollup": "rollup -c",
+    "rollup": "rollup -c --bundleConfigAsCjs",
     "test": "jest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "private": true,
   "repository": {
     "type": "git",
     "url": "github.com:alexrett/ng-cfd.git"
@@ -30,6 +30,7 @@
     "@babel/preset-env": "^7.23.7",
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
+    "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
@@ -67,7 +68,6 @@
     "typescript": "^5.3.3"
   },
   "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
   "files": [
     "dist"
   ],
