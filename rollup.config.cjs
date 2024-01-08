@@ -12,6 +12,7 @@ export default [
             file: "dist/index.js",
             format: "cjs",
         },
+        external: ["react", "react-dom"],
         plugins: [
             babel({
                 presets: ["@babel/preset-env", "@babel/preset-react"],
