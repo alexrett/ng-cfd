@@ -28,6 +28,8 @@ describe("CFD", () => {
         render(<CFD
             width={100}
             height={100}
+            from={'doing' as TestLayer}
+            to={'done' as TestLayer}
             data={convert<TestLayer>(data)}
             keys={Object.keys(TestLayer).reverse() as TestLayer[]}
             wipKeys={Object.keys(TestWipLayer).reverse() as TestLayer[]}

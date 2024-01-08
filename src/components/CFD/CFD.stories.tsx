@@ -30,6 +30,8 @@ export const InitialCFD = (args: React.JSX.IntrinsicAttributes & CFDProps<any>) 
 InitialCFD.args = {
     width: 1200,
     height: 600,
+    from: 'Specify',
+    to: 'Deployed',
     data: convert<BekkLayers>(bekk),
     keys: Object.keys(BekkLayers).reverse() as BekkLayers[],
     wipKeys: Object.keys(BekkWipsLayers).reverse() as BekkLayers[]
@@ -49,6 +51,8 @@ export const TestCFD = (args: React.JSX.IntrinsicAttributes & CFDProps<any>) => 
 TestCFD.args = {
     width: 1200,
     height: 600,
+    from: 'doing',
+    to: 'done',
     data: convert<TestLayer>(test),
     keys: Object.keys(TestLayer).reverse() as TestLayer[],
     wipKeys: Object.keys(TestWipLayer).reverse() as TestLayer[]

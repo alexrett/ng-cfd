@@ -6,6 +6,8 @@ import toLt from "../../helpers/toLt";
 export interface CFDProps<Layer extends string> {
     width: number;
     height: number;
+    from: Layer;
+    to: Layer;
     data: readonly TimeDatum<Layer>[]
     keys: readonly Layer[]
     wipKeys: readonly Layer[]
@@ -15,8 +17,16 @@ const bisectDate = d3.bisector((d: BaseTimeDatum) => d.timestamp).left
 const margin = {top: 20, right: 30, bottom: 30, left: 40}
 
 const CFD = <Layer extends string>(props: PropsWithChildren<CFDProps<Layer>>) => {
-    const {data, keys, wipKeys, width, height} = props
-    const ltData = toLt(data, keys, true)
+    const {
+        data,
+        keys,
+        wipKeys,
+        width,
+        height,
+        from,
+        to,
+    } = props
+    const ltData = toLt(data, keys, true, from, to)
     const d3Container = useRef(null)
 
     useEffect(() => {
@@ -201,11 +211,13 @@ const CFD = <Layer extends string>(props: PropsWithChildren<CFDProps<Layer>>) =>
                                 let DifferenceInDays =
                                     Math.round(DifferenceInLtTime / (1000 * 3600 * 24));
 
-                                console.log(DifferenceInDays)
+                                // console.log(DifferenceInDays)
                                 ltCircle.attr('transform', `translate(${ltX},${datumY})`)
-                                ltLabel.attr('transform', `translate(${ltX - 3},${datumY - 7})`)
-                                    .text('LT: ' + DifferenceInDays).style('font-family', 'sans-serif').style('font-size', '10px')
-                                    .style('font-weight', 'bold')
+                                if (DifferenceInDays > 0) {
+                                    ltLabel.attr('transform', `translate(${ltX - 3},${datumY - 7})`)
+                                        .text('LT: ' + DifferenceInDays).style('font-family', 'sans-serif').style('font-size', '10px')
+                                        .style('font-weight', 'bold')
+                                }
                                 // Move (and show) the lt line
                                 ltLine.style('display', null)
                                 ltLine.attr('x1', datumX).attr('x2', ltX).attr('y1', datumY).attr('y2', datumY)

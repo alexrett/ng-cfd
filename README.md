@@ -14,5 +14,6 @@ Most part of the code is from this project. Big thanks to Aslak Hellesøy.
 - Bumped dependencies
 - Added WIP limits settings (which statuses are used for WIP limits)
 - Added hover tooltips (WIP, LT, CNT)
-- ...
+- Fixed LT calculation
+- Added setup LT setting to calculate
 
