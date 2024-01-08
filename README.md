@@ -17,6 +17,10 @@ Most part of the code is from this project. Big thanks to Aslak Hellesøy.
 - Fixed LT calculation
 - Added setup LT setting to calculate
 
+## Example
+
+[Demo](https://alexrett.github.io/ng-cfd)
+
 ![example.png](.assets/example.png)
 
 ## How to use it
